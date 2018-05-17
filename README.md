@@ -9,8 +9,10 @@
 
 注意：该项目使用 element-ui@2.0.0+ 版本，所以最低兼容 vue@2.5.0+
 
-- [在线演示](http://liansixin.win/vueBlog-template)
+- [在线演示](http://template.liansixin.win)
 - [使用文档](http://liansixin.win/vue-blog-book)
+
+<img src="https://github.com/uncleLian/vueBlog-template/raw/master/screenshots/vueBlog-templa.png" width="900px" style="max-width: 100%;"/>
 
 ## 功能
 - [x] 登录/注销
