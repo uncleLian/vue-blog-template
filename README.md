@@ -12,7 +12,7 @@
 - [在线演示](http://template.liansixin.win)
 - [使用文档](http://liansixin.win/vue-blog-book)
 
-<img src="https://github.com/uncleLian/vueBlog-template/raw/master/screenshots/vueBlog-templa.png" width="900px" style="max-width: 100%;"/>
+<img src="https://github.com/uncleLian/vueBlog-template/raw/master/screenshots/vueBlog-template.png" width="900px" style="max-width: 100%;"/>
 
 ## 功能
 - [x] 登录/注销
