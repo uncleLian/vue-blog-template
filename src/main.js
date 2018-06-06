@@ -37,7 +37,7 @@ Object.keys(filters).forEach(key => {
 })
 
 Vue.prototype.$http = axios
-Vue.use(ElementUI)
+Vue.use(ElementUI, { size: 'medium' })
 Vue.use(VueProgressBar, {
     color: '#29F',
     failedColor: 'red',

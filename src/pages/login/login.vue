@@ -68,7 +68,7 @@ export default {
     position: relative;
     width: 100%;
     height: 100vh;
-    background: #359469;
+    background: $blackColor;
     overflow: hidden;
     .login-wrapper {
         position: absolute;
@@ -116,7 +116,7 @@ export default {
                 }
                 &:hover {
                     input {
-                        color: $appColor;
+                        color: $blackColor;
                     }
                 }
             }

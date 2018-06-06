@@ -15,7 +15,7 @@
                                 <span class="el-dropdown-link">{{user.nickname}}</span>
                             </div>
                             <el-dropdown-menu slot="dropdown">
-                                <el-dropdown-item :disabled="true">v1.0.0</el-dropdown-item>
+                                <el-dropdown-item :disabled="true">v1.0.1</el-dropdown-item>
                                 <el-dropdown-item divided command="exit">退出登录</el-dropdown-item>
                             </el-dropdown-menu>
                         </el-dropdown>
@@ -72,7 +72,7 @@ export default {
 #header {
     position: relative;
     width: 100%;
-    background-color: $appColor;
+    background-color: $blackColor;
     padding: 0 50px 0 40px;
     .container {
         position: relative;

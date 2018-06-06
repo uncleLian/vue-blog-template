@@ -1,6 +1,5 @@
 import axios from 'axios'
 import qs from 'qs'
-import store from '@/store'
 import { Message } from 'element-ui'
 import cache from '@/utils/cache'
 
@@ -13,7 +12,7 @@ export const instance = axios.create({
 // request拦截器
 instance.interceptors.request.use(config => {
     // Do something before request is sent
-    if (store.getters.token) {
+    if (cache.getToken()) {
         config.headers['X-Token'] = cache.getToken() // 让每个请求携带token -- ['X-Token']为自定义key 请根据实际情况自行修改
     }
     return config
