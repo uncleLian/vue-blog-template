@@ -1,11 +1,11 @@
 <template>
-    <el-header id="header" height="80px">
+    <el-header id="header" height="50px">
         <div class="container">
-            <!-- logo -->
-            <router-link class="header-logo" to="/">
-                <span>vueBlog-template</span>
-            </router-link>
-
+            <div class="header-left">
+                <el-breadcrumb class="header-breadcrumb">
+                    <el-breadcrumb-item v-for="(item, index) in breadcrumb" :key="index" :to="item.path">{{item.meta.title || item.name}}</el-breadcrumb-item>
+                </el-breadcrumb>
+            </div>
             <div class="header-right">
                 <div class="right-item">
                     <div class="user" v-if="user">
@@ -15,7 +15,7 @@
                                 <span class="el-dropdown-link">{{user.nickname}}</span>
                             </div>
                             <el-dropdown-menu slot="dropdown">
-                                <el-dropdown-item :disabled="true">v1.0.1</el-dropdown-item>
+                                <el-dropdown-item :disabled="true">v1.0.2</el-dropdown-item>
                                 <el-dropdown-item divided command="exit">退出登录</el-dropdown-item>
                             </el-dropdown-menu>
                         </el-dropdown>
@@ -23,10 +23,6 @@
                 </div>
             </div>
         </div>
-        <!-- breadcrumb -->
-        <el-breadcrumb class="header-breadcrumb" separator-class="el-icon-arrow-right">
-            <el-breadcrumb-item v-for="(item,index) in breadcrumb" :key="index" :to="item.path">{{item.meta.title || item.name}}</el-breadcrumb-item>
-        </el-breadcrumb>
     </el-header>
 </template>
 <script>
@@ -50,9 +46,6 @@ export default {
         }
     },
     mounted() {
-        this.$nextTick(() => {
-            this.$el.querySelector('.header-breadcrumb').style.left = document.getElementById('side').offsetWidth + 'px'
-        })
         this.getBreadcrumb()
     },
     methods: {
@@ -69,83 +62,48 @@ export default {
 }
 </script>
 <style lang='stylus'>
+$avatarSize = 30px;
 #header {
     position: relative;
     width: 100%;
-    background-color: $blackColor;
-    padding: 0 50px 0 40px;
+    background-color: #fff;
+    border-bottom: 1px solid $deepBorderColor;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 0 3px 0 rgba(0, 0, 0, 0.04);
+    padding: 0 20px;
+    z-index: 1;
     .container {
         position: relative;
         width: 100%;
         height: 100%;
-        .header-logo {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
-            color: #fff;
-            font-size: 20px;
-            font-weight: bold;
-            span {
-                display: inline-block;
-                vertical-align: middle;
-            }
-        }
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         .header-right {
             height: 100%;
-            float: right;
             display: flex;
             align-items: center;
-            color: #fff;
-            font-size: 20px;
             .right-item {
-                font-size: 0;
+                color: $normalTextColor;
+                font-size: 20px;
                 margin: 0 10px;
                 cursor: pointer;
-            }
-            .bug {
-                color: inherit;
-                font-size: 20px;
-                padding: 2px 4px;
-                border: none;
-                outline: none;
-            }
-            .i18n {
-                display: flex;
-                align-items: center;
-                font-size: 15px;
-                color: #fff;
-                i {
-                    margin-left: 4px;
-                }
             }
             .user {
                 .user-info {
                     img {
-                        width: 40px;
-                        height: 40px;
+                        display: inline-block;
+                        width: $avatarSize;
+                        height: $avatarSize;
                         border-radius: 100%;
                         vertical-align: middle;
                         margin-right: 5px;
-                    }
-                    span {
-                        color: #fff;
                     }
                 }
             }
         }
     }
     .header-breadcrumb {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        padding: 0 20px;
-        .el-breadcrumb__inner {
-            color: #fff;
-        }
-        .el-breadcrumb__separator {
-            color: #fff;
-        }
+        font-size: 13px;
     }
 }
 </style>

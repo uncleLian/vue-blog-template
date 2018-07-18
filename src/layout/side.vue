@@ -1,7 +1,8 @@
 <template>
     <my-sticky sticky-class="sticky-class">
-        <el-aside id="side" width="240px">
-            <el-menu class="el-side-container" :default-active="$route.name" :default-openeds="defaultOpeneds">
+        <el-aside id="side" width="180px">
+            <!-- menu -->
+            <el-menu :default-active="$route.name" :default-openeds="defaultOpeneds" background-color="#304156" text-color="#bfcbd9" active-text-color="#42b983">
                 <my-side-item :json="filterRoutes"></my-side-item>
             </el-menu>
         </el-aside>
@@ -32,12 +33,12 @@ export default {
                             if (route.meta.open) {
                                 this.defaultOpeneds.push(route.name)
                             }
-                            return true
                         }
                     }
                     if (route.children) {
                         route.children = this.handleRoutes(route.children)
                     }
+                    return true
                 } else {
                     return false
                 }
@@ -52,11 +53,17 @@ export default {
     height: 100%;
 }
 #side {
-    user-select: none;
+    display: flex;
+    flex-direction: column;
     height: 100%;
-    .el-side-container {
-        min-height: 100%;
+    user-select: none;
+    .el-menu {
+        flex-grow: 1;
         padding-bottom: 15px;
+        border: none;
+        .el-menu-item {
+            min-width: 180px;
+        }
     }
 }
 </style>

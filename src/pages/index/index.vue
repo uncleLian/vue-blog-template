@@ -1,12 +1,12 @@
 <template>
     <div id="index">
-        <el-container id="verContainer" direction="vertical">
-            <!-- header -->
-            <my-header></my-header>
-            <el-container id="horContainer" direction="horizontal">
-                <!-- Side> -->
-                <my-side></my-side>
-                <!-- Main -->
+        <el-container id="horContainer" direction="horizontal">
+            <!-- side -->
+            <my-side></my-side>
+            <el-container id="verContainer" direction="vertical">
+                <!-- header -->
+                <my-header></my-header>
+                <!-- main -->
                 <el-main id="main">
                     <transition name="el-fade-in-linear" mode="out-in">
                         <router-view></router-view>
@@ -29,19 +29,18 @@ export default {
     position: relative;
     width: 100%;
     height: 100%;
-    #verContainer {
+    #horContainer {
         height: 100%;
-        #horContainer {
-            height: 100%;
-            #main {
-                position: relative;
-                width: 100%;
-                height: fit-content;
-                min-height: 100%;
-                background: #fff;
-                overflow: inherit;
-            }
-        }
+    }
+    #verContainer {
+        position: relative;
+        height: 100%;
+    }
+    #main {
+        position: relative;
+        width: 100%;
+        background: #fff;
+        overflow: inherit;
     }
 }
 </style>

@@ -1,12 +1,21 @@
 <template>
-    <keep-alive v-if="$route.meta.keep">
+    <keep-alive :include="keepRoutes">
         <router-view></router-view>
     </keep-alive>
-    <router-view v-else></router-view>
 </template>
 <script>
 export default {
-    name: 'my-view'
+    name: 'my-view',
+    data() {
+        return {
+            keepRoutes: []
+        }
+    },
+    mounted() {
+        if (this.$route.meta.keep) {
+            this.keepRoutes.push(this.$route.name)
+        }
+    }
 }
 </script>
 <style lang='stylus'>
