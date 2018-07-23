@@ -12,7 +12,7 @@
                         <el-dropdown placement="top-end" @command="onUserSelected">
                             <div class="user-info">
                                 <img :src="user.headimgurl">
-                                <span class="el-dropdown-link">{{user.nickname}}</span>
+                                <span>{{user.nickname}}</span>
                             </div>
                             <el-dropdown-menu slot="dropdown">
                                 <el-dropdown-item :disabled="true">v1.0.2</el-dropdown-item>

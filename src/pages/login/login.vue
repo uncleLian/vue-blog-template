@@ -101,6 +101,8 @@ export default {
                 padding: 0 10px;
                 text-align: center;
                 height: 100%;
+                display: flex;
+                align-items: center;
                 &.prepend-icon {
                     left: 0;
                 }

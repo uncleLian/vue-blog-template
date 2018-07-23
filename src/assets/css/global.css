@@ -29,6 +29,3 @@ body {
 .clearfix {
     zoom: 1;
 }
-[class^=el-icon-] {
-    vertical-align: middle;
-}
