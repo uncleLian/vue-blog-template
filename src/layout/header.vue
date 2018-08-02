@@ -15,7 +15,7 @@
                                 <span>{{user.nickname}}</span>
                             </div>
                             <el-dropdown-menu slot="dropdown">
-                                <el-dropdown-item :disabled="true">v1.0.2</el-dropdown-item>
+                                <el-dropdown-item :disabled="true">v1.0.3</el-dropdown-item>
                                 <el-dropdown-item divided command="exit">退出登录</el-dropdown-item>
                             </el-dropdown-menu>
                         </el-dropdown>
