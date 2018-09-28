@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie'
 
-const TokenKey = 'blog-token'
+const TokenKey = 'vue-bolg-template-token'
 
 export default {
     getToken: function() {

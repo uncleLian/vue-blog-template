@@ -9,29 +9,26 @@ const state = {
     logs: [], // 错误日志
     user: '' // 用户信息
 }
-
 const getters = {
 }
-
 const mutations = {
-    set_logs(state, error) {
+    SET_LOGS(state, error) {
         state.logs.push(error)
     },
-    loginOut(state) {
-        state.user = ''
-        cache.removeToken()
-    },
-    set_user(state, val) {
+    SET_USER(state, val) {
         state.user = val
     },
-    set_role(state, role) {
-        state.user.role = role
+    SET_ROLE(state, val) {
+        state.user.role = val
+    },
+    SET_LOGOUT(state) {
+        state.user = ''
+        cache.removeToken()
     }
 }
-
 const actions = {
     // 获取登录数据
-    async get_login_data({ commit }, params) {
+    async GET_LOGIN_DATA({ commit }, params) {
         return new Promise((resolve, reject) => {
             getLogin(params).then(res => {
                 // console.log('login', res)
@@ -41,25 +38,23 @@ const actions = {
                 } else {
                     reject(new Error('nothing login data'))
                 }
-            })
-            .catch(err => {
+            }).catch(err => {
                 reject(err)
             })
         })
     },
     // 获取用户数据
-    async get_user_data({ commit }, token) {
+    async GET_USER_DATA({ commit }, token) {
         return new Promise((resolve, reject) => {
             getUser(token).then(res => {
                 // console.log('user', res)
                 if (res && res.code === 200 && res.data) {
-                    commit('set_user', res.data)
+                    commit('SET_USER', res.data)
                     resolve(res.data)
                 } else {
                     reject(new Error('nothing user data'))
                 }
-            })
-            .catch(err => {
+            }).catch(err => {
                 reject(err)
             })
         })

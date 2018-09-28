@@ -1,53 +1,45 @@
 # vueBlog-template
 
-![image](https://img.shields.io/badge/vue-2.5.16-blue.svg)
+![image](https://img.shields.io/badge/vue-2.5.17-blue.svg)
 ![image](https://img.shields.io/badge/vue--router-3.0.1-blue.svg)
 ![image](https://img.shields.io/badge/vuex-3.0.1-blue.svg)
-![image](https://img.shields.io/badge/element--ui-2.3.2-blue.svg)
+![image](https://img.shields.io/badge/element--ui-2.4.7-blue.svg)
+![image](https://img.shields.io/badge/vue--cli-3.x-green.svg)
 
 > 一个极简的单页面后台管理系统模板。适用人群：Vue开发人员
 
-注意：该项目使用 element-ui@2.0.0+ 版本，所以最低兼容 vue@2.5.0+
+##### 注：master分支基于 vue-cli-3.x，vue-cli-2.x请移步到[v1.0分支](https://github.com/uncleLian/vueBlog-template/tree/v1.0)
+
+##### 注：该项目使用 element-ui@2.0.0+ 版本，所以最低兼容 vue@2.5.0+
 
 - [在线演示](http://template.liansixin.win)
 - [使用文档](http://liansixin.win/vue-blog-book)
 
-<img src="https://github.com/uncleLian/vueBlog-template/raw/master/screenshots/vueBlog-template.png" width="900px" style="max-width: 100%;"/>
+<img src="https://github.com/uncleLian/vue-blog/raw/master/screenshots/vueBlog-template.png" width="900px" style="max-width: 100%;"/>
 
 ## 功能
 - [x] 登录/注销
-- [x] 权限验证
+- [x] 权限验证（页面级—用户角色）
 - [x] 前端mock数据
-- [x] 多环境发布
-- [x] 动态侧边栏
+- [x] 根据路由表生成侧边栏
 - [x] 401、404页面
 - [x] 全局错误捕捉
-- [x] Iconfont图标
-- [x] 进度条
-- [x] 图钉
+- [x] axios封装（统一处理请求、拦截、报错等）
+- [x] ...
 
-## 开发
-```
+## 开发和发布
+```bash
 # 克隆项目
 git clone https://github.com/uncleLian/vueBlog-template.git
 
 # 安装依赖
 npm install
-   
-# 建议不要用cnpm安装，某些依赖可能无法安装， 可以通过如下操作解决 npm 下载速度慢的问题
-npm install --registry=https://registry.npm.taobao.org
 
 # 启动服务
-npm run dev
-```
+npm run serve
 
-## 发布
-```
-# 构建测试环境
-npm run build:sit
-
-# 构建生产环境
-npm run build:prod
+# 发布
+npm run build
 ```
 
 ## 交流

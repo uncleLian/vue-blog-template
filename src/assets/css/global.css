@@ -1,5 +1,4 @@
  /* 自定义全局css */
-
 * {
     box-sizing: border-box;
 }
@@ -14,7 +13,7 @@ body {
     font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
     font-weight: 400;
     font-size: 14px;
-    color: #595959;
+    color: #333;
     overflow-x: hidden;
     overflow-y: auto;
 }

@@ -1,18 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-const view = () => import('@/layout/view')
+// const view = () => import('@/layout/view')
 // index
-const index = () => import('@/pages/index/index')
-const home = () => import('@/pages/index/children/home/home')
-const example = () => import('@/pages/index/children/manyMenu/example')
-const table = () => import('@/pages/index/children/manyMenu/table')
-const permission = () => import('@/pages/index/children/manyMenu/permission')
+const index = () => import('@/views/index/index')
+const home = () => import('@/views/index/children/home')
 // login
-const login = () => import('@/pages/login/login')
+const login = () => import('@/views/login/login')
 // other
-const page401 = () => import('@/pages/other/page401')
-const page404 = () => import('@/pages/other/page404')
+const page401 = () => import('@/views/other/page401')
+const page404 = () => import('@/views/other/page404')
 
 Vue.use(Router)
 
@@ -35,48 +32,6 @@ export const sideRoutes = [
             icon: 'el-icon-my-home',
             title: '主页'
         }
-    },
-    {
-        name: 'manyMenu',
-        path: 'manyMenu',
-        component: view,
-        redirect: '/index/manyMenu/example',
-        meta: {
-            icon: 'el-icon-menu',
-            title: '多级菜单',
-            open: true
-        },
-        children: [
-            {
-                name: 'example',
-                path: 'example',
-                component: example,
-                meta: {
-                    icon: 'el-icon-my-ravelry',
-                    title: '示例'
-                }
-            },
-            {
-                name: 'table',
-                path: 'table',
-                component: table,
-                meta: {
-                    icon: 'el-icon-my-chart',
-                    title: '表格'
-                }
-            },
-            {
-                name: 'permission',
-                path: 'permission',
-                icon: 'el-icon-my-lock',
-                meta: {
-                    icon: 'el-icon-my-lock',
-                    title: '权限测试',
-                    role: 'admin'
-                },
-                component: permission
-            }
-        ]
     }
 ]
 

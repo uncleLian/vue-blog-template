@@ -1,11 +1,16 @@
 // 主色调
 $appColor = #42b983
 $appColorRGB = 66,185,131
-// 文字颜色
-$mainTextColor = #303133
-$normalTextColor = #606266
-$minorTextColor = #909399
-$infoTextColor = #C0C4CC
-// 边框颜色
-$deepBorderColor = #DCDFE6
-$shallowBorderColor = #E4E7ED
+
+// 水平垂直居中
+flex-center() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+// 单行溢出省略号
+text-ellipsis() {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
