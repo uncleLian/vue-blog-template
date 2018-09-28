@@ -8,6 +8,8 @@ import store from './store'
 import '@/assets/css/reset.css'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/assets/css/global.css'
+import vuePositionSticky from 'vue-position-sticky'
+
 // js
 import '@/permission'
 import '@/errorLog'
@@ -16,7 +18,6 @@ import '@/errorLog'
 import '@/mock'
 
 // 自定义公共组件
-import sticky from '@/components/sticky'
 import sideItem from '@/layout/sideItem'
 
 // 自定义过滤
@@ -29,7 +30,6 @@ import VueProgressBar from 'vue-progressbar'
 
 Vue.config.productionTip = false
 
-Vue.component('my-sticky', sticky)
 Vue.component('my-side-item', sideItem)
 
 Object.keys(filters).forEach(key => {
@@ -43,6 +43,7 @@ Vue.use(VueProgressBar, {
     failedColor: 'red',
     thickness: '2px'
 })
+Vue.use(vuePositionSticky)
 
 /* eslint-disable no-new */
 new Vue({

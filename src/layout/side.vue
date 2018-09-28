@@ -1,12 +1,12 @@
 <template>
-    <my-sticky sticky-class="sticky-class">
+    <vue-position-sticky sticky-class="sticky-class">
         <el-aside id="side" width="180px">
             <!-- menu -->
             <el-menu :default-active="$route.name" :default-openeds="defaultOpeneds" background-color="#304156" text-color="#bfcbd9" active-text-color="#42b983">
                 <my-side-item :json="filterRoutes"></my-side-item>
             </el-menu>
         </el-aside>
-    </my-sticky>
+    </vue-position-sticky>
 </template>
 <script>
 import { sideRoutes } from '@/router'
