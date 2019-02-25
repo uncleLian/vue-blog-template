@@ -20,11 +20,13 @@ instance.interceptors.request.use(config => {
 // response
 instance.interceptors.response.use(response => {
     const res = response.data
+    // 自定义报错规则
     if (res && res.errorMessage) {
         return Promise.reject(res.errorMessage)
     }
     return Promise.resolve(res)
 }, error => {
+    // 请求直接报错
     Message({
         message: error.message,
         type: 'error',
@@ -34,34 +36,37 @@ instance.interceptors.response.use(response => {
 })
 
 /*
-* request方法
+* request方法（统一axios请求方法的格式）
 * url       请求URL
 * type      请求类型
 * data      参数
-* isForm    是否表单数据（只适用POST方法）
+* isForm    是否表单数据
 */
 export const request = async (url = '', type = 'GET', data = {}, isForm = false) => {
     let result
-    type = type.toUpperCase()
-
-    if (type === 'GET') {
-        await instance.get(url, { params: data }).then(res => {
-            result = res
-        })
-    } else if (type === 'POST') {
-        if (isForm) {
-            let form = new FormData()
-            Object.keys(data).forEach(key => {
-                form.append(key, data[key])
-            })
-        }
-        await instance.post(url, data, {
-            headers: {
-                'Content-type': isForm ? 'multipart/form-data' : 'application/x-www-form-urlencoded'
-            }
-        }).then(res => {
-            result = res
-        })
+    type = type.toUpperCase() // 转为大写
+    let requestOptions = {
+        method: type,
+        url: url
     }
+    if (isForm) {
+        let form = new FormData()
+        Object.keys(data).forEach(key => {
+            console.log('key', key)
+            form.append(key, data[key])
+        })
+        data = form
+    }
+    requestOptions['headers'] = {
+        'Content-type': isForm ? 'multipart/form-data' : 'application/json'
+    }
+    if (type === 'GET') {
+        requestOptions['params'] = data
+    } else {
+        requestOptions['data'] = data
+    }
+    await instance(requestOptions).then(res => {
+        result = res
+    })
     return result
 }

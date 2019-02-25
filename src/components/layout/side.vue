@@ -1,8 +1,16 @@
 <template>
     <vue-position-sticky sticky-class="sticky-class">
-        <el-aside id="side" width="180px">
+        <el-aside id="side"
+            :width="isCollapse ? '64px' : variables.menuWidth"
+            :style="{'background': variables.menuBg}">
             <!-- menu -->
-            <el-menu :default-active="$route.name" :default-openeds="defaultOpeneds" background-color="#304156" text-color="#bfcbd9" active-text-color="#42b983">
+            <el-menu :default-active="$route.name"
+                :collapse="isCollapse"
+                :default-openeds="defaultOpeneds"
+                :background-color="variables.menuBg"
+                :text-color="variables.menuText"
+                :active-text-color="variables.menuActiveText"
+                mode="vertical">
                 <my-side-item :json="filterRoutes"></my-side-item>
             </el-menu>
         </el-aside>
@@ -10,12 +18,21 @@
 </template>
 <script>
 import { sideRoutes } from '@/router'
+import variables from '@/assets/css/index.styl'
 export default {
     name: 'my-side',
     data() {
         return {
             filterRoutes: [], // 过滤后的路由
             defaultOpeneds: [] // 默认打开的二级菜单
+        }
+    },
+    computed: {
+        variables() {
+            return variables
+        },
+        isCollapse() {
+            return !this.$store.state.sidebarStatus
         }
     },
     created() {
@@ -57,13 +74,13 @@ export default {
     flex-direction: column;
     height: 100%;
     user-select: none;
+    transition: width 0.28s;
     .el-menu {
+        width: 100%;
         flex-grow: 1;
         padding-bottom: 15px;
         border: none;
-        .el-menu-item {
-            min-width: 180px;
-        }
+        transition: width 0.28s;
     }
 }
 </style>

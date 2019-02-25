@@ -8,8 +8,9 @@ import 'element-ui/lib/theme-chalk/index.css'
 import VueProgressBar from 'vue-progressbar'
 import vuePositionSticky from 'vue-position-sticky'
 // 自定义
-import '@/assets/css/reset.css'
+import 'normalize.css'
 import '@/assets/css/global.css'
+import '@/assets/iconfont/iconfont.css'
 import '@/utils/permission'
 import '@/utils/errorLog'
 import components from '@/components'
@@ -23,10 +24,12 @@ Vue.config.productionTip = false
 Vue.use(ElementUI, { size: 'small' })
 Vue.use(VueProgressBar)
 Vue.use(vuePositionSticky)
-// 自定义
+
+// 注册全局组件
 Object.keys(components).forEach(key => {
     Vue.component(key, components[key])
 })
+// 注册全局过滤方法
 Object.keys(filters).forEach(key => {
     Vue.filter(key, filters[key])
 })

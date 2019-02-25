@@ -1,14 +1,16 @@
 <template>
     <div id="index">
-        <el-container id="horContainer" direction="horizontal">
+        <el-container id="horContainer"
+            direction="horizontal">
             <!-- side -->
             <my-side></my-side>
-            <el-container id="verContainer" direction="vertical">
+            <el-container id="verContainer"
+                direction="vertical">
                 <!-- header -->
                 <my-header></my-header>
-                <!-- main -->
                 <el-main id="main">
-                    <transition name="el-fade-in-linear" mode="out-in">
+                    <transition name="el-fade-in-linear"
+                        mode="out-in">
                         <router-view></router-view>
                     </transition>
                 </el-main>
@@ -17,11 +19,8 @@
     </div>
 </template>
 <script>
-import myHeader from '@/layout/header'
-import mySide from '@/layout/side'
 export default {
-    name: 'index',
-    components: { myHeader, mySide }
+    name: 'index'
 }
 </script>
 <style lang='stylus'>
@@ -35,6 +34,7 @@ export default {
     #verContainer {
         position: relative;
         height: 100%;
+        transition: width 0.28s;
     }
     #main {
         position: relative;

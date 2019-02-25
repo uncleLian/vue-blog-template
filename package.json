@@ -9,13 +9,14 @@
     },
     "dependencies": {
         "axios": "^0.18.0",
-        "element-ui": "^2.4.7",
+        "element-ui": "^2.5.4",
         "js-cookie": "^2.2.0",
         "mockjs": "^1.0.1-beta3",
-        "vue": "^2.5.17",
+        "normalize.css": "^8.0.1",
+        "vue": "^2.6.7",
         "vue-position-sticky": "^0.2.0",
         "vue-progressbar": "^0.7.5",
-        "vue-router": "^3.0.1",
+        "vue-router": "^3.0.2",
         "vuex": "^3.0.1"
     },
     "devDependencies": {
@@ -25,7 +26,7 @@
         "@vue/eslint-config-standard": "^3.0.4",
         "stylus": "^0.54.5",
         "stylus-loader": "^3.0.2",
-        "vue-template-compiler": "^2.5.17"
+        "vue-template-compiler": "^2.6.7"
     },
     "eslintConfig": {
         "root": true,
@@ -40,7 +41,8 @@
             "no-undef": 0,
             "indent": 0,
             "camelcase": 0,
-            "space-before-function-paren": 0
+            "space-before-function-paren": 0,
+            "vue/require-component-is": 0
         },
         "parserOptions": {
             "parser": "babel-eslint"

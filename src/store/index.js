@@ -7,7 +7,8 @@ Vue.use(Vuex)
 
 const state = {
     logs: [], // 错误日志
-    user: '' // 用户信息
+    user: '', // 用户信息
+    sidebarStatus: cache.getCookie('sidebarStatus') ? !!cache.getCookie('sidebarStatus') : true // 侧边栏，false为图标模式
 }
 const getters = {
 }
@@ -24,7 +25,12 @@ const mutations = {
     SET_LOGOUT(state) {
         state.user = ''
         cache.removeToken()
+    },
+    SET_SIDEBAR_STATUS(state) {
+        state.sidebarStatus = !state.sidebarStatus
+        cache.setCookie('sidebarStatus', !state.sidebarStatus)
     }
+
 }
 const actions = {
     // 获取登录数据

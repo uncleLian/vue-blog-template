@@ -1,25 +1,26 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
-// const view = () => import('@/layout/view')
+// 视图组件
+// const view = () => import('@/components/layout/view')
 // index
-const index = () => import('@/views/index/index')
-const home = () => import('@/views/index/children/home')
+const index = () => import('@/pages/index/index')
+const home = () => import('@/pages/index/children/home')
 // login
-const login = () => import('@/views/login/login')
+const login = () => import('@/pages/login/login')
 // other
-const page401 = () => import('@/views/other/page401')
-const page404 = () => import('@/views/other/page404')
+const page401 = () => import('@/pages/other/page401')
+const page404 = () => import('@/pages/other/page404')
 
 Vue.use(Router)
 
 /* sideRoutes config
 * @meta
-* icon: ''                      菜单图标（可以用element-ui的icon & iconfont）
+* icon: ''                      菜单图标（可以用element-ui的icon & iconfont：需额外设置）
 * login: false                  是否需要登录
 * role: 'admin' || ['admin']    是否需要权限
 * keep: false                   是否需要缓存
-* open: false                   是否展开菜单
+* open: false                   是否展开菜单（有子菜单前提下）
+* hidden: false                 是否显示在菜单
 */
 
 // 要在侧边栏渲染的路由

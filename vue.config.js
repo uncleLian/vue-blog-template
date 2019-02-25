@@ -1,4 +1,6 @@
 const path = require('path')
+// 配置参数
+// https://cli.vuejs.org/zh/config/
 module.exports = {
     baseUrl: '/',
     outputDir: 'docs',
@@ -15,6 +17,15 @@ module.exports = {
         }
     },
     devServer: {
+        // proxy: {
+        //     '/Api': {
+        //         target: '',
+        //         changeOrigin: true,
+        //         pathRewrite: {
+        //             '^/Api': ''
+        //         }
+        //     }
+        // },
         port: 8002
     }
 }
