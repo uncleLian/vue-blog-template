@@ -4,11 +4,12 @@ import router from '@/router'
 import store from '@/store'
 // 第三方
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+// import 'element-ui/lib/theme-chalk/index.css' // element-ui 默认颜色
+import '@/assets/css/theme-chalk/index.css' // 自定义主题颜色
 import VueProgressBar from 'vue-progressbar'
 import vuePositionSticky from 'vue-position-sticky'
 // 自定义
-import 'normalize.css'
+import 'normalize.css' // 重置样式
 import '@/assets/css/global.css'
 import '@/assets/iconfont/iconfont.css'
 import '@/utils/permission'

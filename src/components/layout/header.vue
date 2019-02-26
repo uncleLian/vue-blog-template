@@ -52,7 +52,7 @@ export default {
             'sidebarStatus'
         ]),
         version() {
-            return window.g.Version
+            return 'v' + require('../../../package.json').version
         }
     },
     watch: {

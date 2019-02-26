@@ -16,7 +16,7 @@ export default {
     },
     // cookie
     getCookie: function (name) {
-        return Cookies.get()
+        return Cookies.get(name)
     },
     setCookie: function (name, val) {
         return Cookies.set(name, val, { expires: cookieTime })
