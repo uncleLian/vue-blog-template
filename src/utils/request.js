@@ -3,7 +3,7 @@ import { Message } from 'element-ui'
 import cache from '@/utils/cache'
 
 export const instance = axios.create({
-    baseURL: window.g.BASE_URL,
+    baseURL: process.env.VUE_APP_BASE_API,
     timeout: 20 * 1000
 })
 

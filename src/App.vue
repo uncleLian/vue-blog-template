@@ -1,10 +1,7 @@
 <template>
     <div id="app">
-        <transition name="el-fade-in-linear" mode="out-in">
-            <router-view />
-        </transition>
-        <!-- progress-bar-->
-        <vue-progress-bar></vue-progress-bar>
+        <app-view />
+        <vue-progress-bar />
     </div>
 </template>
 
@@ -31,10 +28,5 @@ export default {
 #app {
     position: relative;
     height: 100%;
-    a {
-        color: $appColor;
-        text-decoration: none;
-        outline: none;
-    }
 }
 </style>

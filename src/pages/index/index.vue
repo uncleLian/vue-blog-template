@@ -1,26 +1,25 @@
 <template>
     <div id="index">
-        <el-container id="horContainer"
-            direction="horizontal">
-            <!-- side -->
-            <my-side></my-side>
-            <el-container id="verContainer"
-                direction="vertical">
-                <!-- header -->
-                <my-header></my-header>
+        <el-container id="horContainer" direction="horizontal">
+            <app-menu />
+            <el-container id="verContainer" direction="vertical">
+                <app-header />
                 <el-main id="main">
-                    <transition name="el-fade-in-linear"
-                        mode="out-in">
-                        <router-view></router-view>
-                    </transition>
+                    <app-view />
                 </el-main>
             </el-container>
         </el-container>
     </div>
 </template>
 <script>
+import header from '@/layout/header'
+import sidebar from '@/layout/Sidebar'
 export default {
-    name: 'index'
+    name: 'index',
+    components: {
+        'app-header': header,
+        'app-menu': sidebar,
+    }
 }
 </script>
 <style lang='stylus'>

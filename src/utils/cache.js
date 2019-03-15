@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie'
 
-const TokenKey = 'vue-bolg-template-token'
-const cookieTime = 7
+const TokenKey = 'vue-bolg-template-token' // Token键值
+const cookieTime = 7 // cookie过期时间
 
 export default {
     // token

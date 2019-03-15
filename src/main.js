@@ -7,15 +7,16 @@ import ElementUI from 'element-ui'
 // import 'element-ui/lib/theme-chalk/index.css' // element-ui 默认颜色
 import '@/assets/css/theme-chalk/index.css' // 自定义主题颜色
 import VueProgressBar from 'vue-progressbar'
-import vuePositionSticky from 'vue-position-sticky'
 // 自定义
 import 'normalize.css' // 重置样式
-import '@/assets/css/global.css'
+import '@/assets/css/global.styl'
 import '@/assets/iconfont/iconfont.css'
+import '@/assets/icons' // svg icon
 import '@/utils/permission'
 import '@/utils/errorLog'
 import components from '@/components'
 import filters from '@/filters'
+import cache from '@/utils/cache'
 // mock数据
 import '@/mock'
 
@@ -24,7 +25,6 @@ Vue.config.productionTip = false
 // 第三方
 Vue.use(ElementUI, { size: 'small' })
 Vue.use(VueProgressBar)
-Vue.use(vuePositionSticky)
 
 // 注册全局组件
 Object.keys(components).forEach(key => {
@@ -34,6 +34,9 @@ Object.keys(components).forEach(key => {
 Object.keys(filters).forEach(key => {
     Vue.filter(key, filters[key])
 })
+// 挂在到全局
+Vue.prototype.$filter = filters
+Vue.prototype.$cache = cache
 
 new Vue({
     router,

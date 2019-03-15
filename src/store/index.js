@@ -6,31 +6,28 @@ import { getLogin, getUser } from '@/api'
 Vue.use(Vuex)
 
 const state = {
-    logs: [], // 错误日志
-    user: '', // 用户信息
+    logs: [],
+    user: '',
     sidebarStatus: cache.getCookie('sidebarStatus') !== 'false'
 }
 const getters = {
 }
 const mutations = {
     SET_LOGS(state, error) {
-        state.logs.push(error)
+        state.logs.unshift(error)
     },
     SET_USER(state, val) {
         state.user = val
-    },
-    SET_ROLE(state, val) {
-        state.user.role = val
     },
     SET_LOGOUT(state) {
         state.user = ''
         cache.removeToken()
     },
     SET_SIDEBAR_STATUS(state) {
-        cache.setCookie('sidebarStatus', !state.sidebarStatus)
-        state.sidebarStatus = !state.sidebarStatus
+        let status = !state.sidebarStatus
+        state.sidebarStatus = status
+        cache.setCookie('sidebarStatus', status)
     }
-
 }
 const actions = {
     // 获取登录数据

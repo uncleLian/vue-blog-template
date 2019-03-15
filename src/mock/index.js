@@ -1,19 +1,21 @@
 /* eslint-disable */
 var Mock = require('mockjs/dist/mock-min.js')
 
-Mock.mock('http://blog.liansixin.win/login', {
+let base_mock_url = process.env.VUE_APP_BASE_API
+
+Mock.mock(base_mock_url + '/api/login', {
     'token': Mock.Random.string(20)
 })
-Mock.mock('http://blog.liansixin.win/user', {
+Mock.mock(base_mock_url + '/api/user', {
     code: 200,
     msg: 'success',
     data: {
-        nickname: '思鑫',
-        headimgurl: 'https://avatars1.githubusercontent.com/u/25951301?s=40&v=4',
+        nickname: 'uncleLian',
+        headimgurl: 'http://poci6sbqi.bkt.clouddn.com/avatar.jpg',
         role: 'admin'
     }
 })
-Mock.mock('http://blog.liansixin.win/list', {
+Mock.mock(base_mock_url + '/api/list', {
     'code': 0,
     'msg': '',
     'data': [

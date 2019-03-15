@@ -1,30 +1,26 @@
 <template>
     <div id="login">
         <div class="login-wrapper">
-            <div class="title">vue-bolg-template</div>
-            <el-form class="login-form" :model="form" @submit.native.prevent="verify">
-                <el-form-item>
-                    <!-- username -->
-                    <el-input v-model="form.username" placeholder="用户名" auto-complete='off' />
-                    <span class="input-icon prepend-icon">
-                        <i class="el-icon-my-user"></i>
-                    </span>
-                </el-form-item>
-                <el-form-item>
-                    <!-- password -->
-                    <el-input v-model="form.password" placeholder="密码" auto-complete='off' :type="pwdWatch ? 'text' : 'password'" />
-                    <span class="input-icon prepend-icon">
-                        <i class="el-icon-my-lock"></i>
-                    </span>
-                    <span class="input-icon append-icon" @click="pwdWatch = !pwdWatch">
-                        <i :class="pwdWatch ? 'el-icon-my-openEye' : 'el-icon-my-closeEye'"></i>
-                    </span>
-                </el-form-item>
-                <!-- submit -->
-                <el-input class="login_btn" type="submit" value="登录" />
-            </el-form>
+            <div class="login-container">
+                <div class="login-brand">
+                    <img src="~@/assets/img/logo.jpg">
+                </div>
+                <div class="login-box">
+                    <el-form class="login-form" :model="form" @submit.native.prevent="verify" label-position="top">
+                        <el-form-item class="tip">系统登录</el-form-item>
+                        <el-form-item label="用户名">
+                            <el-input v-model="form.username" auto-complete='off' />
+                        </el-form-item>
+                        <el-form-item label="密码">
+                            <el-input v-model="form.password" auto-complete='off' type="password" show-password />
+                        </el-form-item>
+                        <el-form-item label=" ">
+                            <el-input class="submit" type="submit" value="登录" />
+                        </el-form-item>
+                    </el-form>
+                </div>
+            </div>
         </div>
-
     </div>
 </template>
 <script>
@@ -35,90 +31,125 @@ export default {
             form: {
                 username: 'uncleLian',
                 password: '123456'
-            },
-            pwdWatch: false
+            }
         }
     },
     methods: {
         verify() {
+            let usernameMsg = '请输入用户名'
+            let passwordMsg = '请输入密码'
             if (!this.form.username) {
-                this.$message.error('请输入账号')
+                this.$message.error(usernameMsg)
             } else if (!this.form.password) {
-                this.$message.error('请输入密码')
+                this.$message.error(passwordMsg)
             } else {
                 this.login()
             }
         },
         login() {
+            let successMsg = '登录成功'
+            let errorMsg = '账号或密码错误'
             this.$store.dispatch('GET_LOGIN_DATA', this.form).then((res) => {
-                this.$message.success('登录成功')
+                this.$message.success(successMsg)
                 this.$route.query.redirect ? this.$router.push(this.$route.query.redirect) : this.$router.push('/')
             }).catch((err) => {
                 console.log(err)
-                this.$message.error('账号密码错误')
+                this.$message.error(errorMsg)
             })
         }
     }
 }
 </script>
 <style lang='stylus'>
+$loginPrimary = #44a0b3;
+$loginPrimaryRGB = 68, 160, 179;
+$loginGrey = rgba($loginPrimaryRGB, 0.06);
+$loginDark = rgba($loginPrimaryRGB, 0.5);
 #login {
     position: relative;
     width: 100%;
-    height: 100vh;
-    background: #464c5b;
-    overflow: hidden;
+    min-height: 100vh;
+    background: rgba($loginPrimary, 0.4);
+    background-image: linear-gradient(45deg, #8baaaa 0%, #ae8b9c 100%);
     .login-wrapper {
-        position: absolute;
-        width: 520px;
-        left: 0;
-        right: 0;
-        margin: 150px auto;
-        padding: 30px;
-        .title {
-            display: block;
-            font-size: 26px;
-            font-weight: 400;
-            color: #eee;
-            margin: 0px auto 50px;
-            text-align: center;
-            font-weight: bold;
-        }
-        .login-form {
-            .el-input__inner {
-                padding: 0 36px 0 40px;
-                height: 44px;
-                line-height: 44px;
+        width: 360px;
+        padding: 150px 0;
+        margin: 0 auto;
+        .login-container {
+            position: relative;
+            .login-brand {
+                position: relative;
+                width: 100px;
+                height: 100px;
+                margin: 0 auto -50px auto;
+                border-radius: 50%;
+                box-shadow: 0 4px 40px rgba(0, 0, 0, 0.07);
+                padding: 10px;
+                background-color: #fff;
+                z-index: 1;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                }
             }
-            .input-icon {
-                position: absolute;
-                top: 0;
-                font-size: 16px;
-                user-select: none;
-                cursor: pointer;
-                padding: 0 10px;
-                text-align: center;
+            .login-box {
+                position: relative;
+                width: 100%;
                 height: 100%;
-                display: flex;
-                align-items: center;
-                &.prepend-icon {
-                    left: 0;
-                }
-                &.append-icon {
-                    right: 0;
-                }
-            }
-            .login_btn {
-                input {
-                    font-size: 16px;
-                    font-weight: bold;
-                    cursor: pointer;
-                }
-                &:hover {
-                    input {
-                        color: $blackColor;
+                background-color: #fff;
+                box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+                padding: 60px 25px 25px 25px;
+                border-radius: 3px;
+                .login-form {
+                    .tip {
+                        color: $loginDark;
+                        text-align: center;
+                        font-weight: 700;
+                        margin-top: 10px;
+                    }
+                    .el-form-item__label {
+                        color: $loginDark;
+                        font-weight: 700;
+                        padding: 0;
+                    }
+                    .el-input__inner {
+                        height: 45px;
+                        line-height: 45px;
+                        background: $loginGrey;
+                        border: none;
+                    }
+                    .submit {
+                        cursor: pointer;
+                        input {
+                            width: 100%;
+                            color: #fff;
+                            border-radius: 3px;
+                            background-color: $loginPrimary;
+                            box-shadow: 0 2px 7px $loginDark;
+                            font-weight: 700;
+                            cursor: pointer;
+                            border: none;
+                            outline: 0;
+                            transition: all 0.3s;
+                        }
+                        &:hover {
+                            input {
+                                opacity: 0.8;
+                            }
+                        }
                     }
                 }
+            }
+            &:after {
+                content: ' ';
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                width: 88%;
+                height: 5px;
+                transform: translateX(-50%);
+                background-color: #f0f0f0;
+                border-radius: 0 0 3px 3px;
             }
         }
     }

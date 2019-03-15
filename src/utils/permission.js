@@ -47,5 +47,5 @@ function assessPermission(userRole, pageRole, next) {
     } else if (Array.isArray(pageRole)) {
         if (pageRole.some(role => userRole.indexOf(role) > -1)) pass = true
     }
-    pass ? next() : next('/401')
+    pass ? next() : next('/page401')
 }
