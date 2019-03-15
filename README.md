@@ -1,31 +1,33 @@
 # vueBlog-template
 
-![image](https://img.shields.io/badge/vue-2.5.17-blue.svg)
-![image](https://img.shields.io/badge/vue--router-3.0.1-blue.svg)
-![image](https://img.shields.io/badge/vuex-3.0.1-blue.svg)
-![image](https://img.shields.io/badge/element--ui-2.4.7-blue.svg)
-![image](https://img.shields.io/badge/vue--cli-3.x-green.svg)
+![image](https://img.shields.io/badge/vue-2.6.8-green.svg)
+![image](https://img.shields.io/badge/vue--router-3.0.2-green.svg)
+![image](https://img.shields.io/badge/vuex-3.1.0-green.svg)
+![image](https://img.shields.io/badge/element--ui-2.6.1-blue.svg)
 
-> 一个极简的单页面后台管理系统模板。适用人群：Vue开发人员
+
+> 这是一个极简的管理后台模板，它只包含了搭建管理后台的一些必要功能
 
 ##### 注：master分支基于 vue-cli-3.x，vue-cli-2.x请移步到[v1.0分支](https://github.com/uncleLian/vueBlog-template/tree/v1.0)
-
-##### 注：该项目使用 element-ui@2.0.0+ 版本，所以最低兼容 vue@2.5.0+
 
 - [在线演示](http://template.liansixin.win)
 - [使用文档](http://liansixin.win/vue-blog-book)
 
-<img src="https://github.com/uncleLian/vue-blog/raw/master/screenshots/vueBlog-template.png" width="900px" style="max-width: 100%;"/>
+<img src="http://poci6sbqi.bkt.clouddn.com/vueBlog-template.png" width="900px" style="max-width: 100%;"/>
 
 ## 功能
 - [x] 登录/注销
-- [x] 权限验证（页面级—用户角色）
-- [x] 前端mock数据
-- [x] 根据路由表生成侧边栏
-- [x] 401、404页面
-- [x] 全局错误捕捉
+- [x] 权限验证（页面级）
+- [x] 动态侧边栏
+- [x] 动态面包屑
+- [x] 401、404、全局错误捕捉
+- [x] 多环境（dev、sit、prod）
+- [x] svg icon / iconfont
+- [x] 进度条
+- [x] element-ui
 - [x] axios封装（统一处理请求、拦截、报错等）
-- [x] ...
+- [x] cache封装
+
 
 ## 开发和发布
 ```bash
@@ -36,16 +38,21 @@ git clone https://github.com/uncleLian/vueBlog-template.git
 npm install
 
 # 启动服务
-npm run serve
+npm run dev
 
 # 发布
 npm run build
+
+# 测试环境
+npm run build:sit
+
+# 报告
+npm run build:report
 ```
 
 ## 交流
 欢迎热爱学习、忠于分享的朋友一起来交流
-- QQ：771674109
-- Vue交流群：338241465 —— 广州-小鑫
+- Vue交流群：338241465
 
 ## License
 [MIT](http://opensource.org/licenses/MIT)
