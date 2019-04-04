@@ -1,4 +1,4 @@
-# vueBlog-template
+# vue-blog-template
 
 [![image](https://img.shields.io/badge/vue-2.6.8-brightgreen.svg)](https://github.com/vuejs/vue)
 [![image](https://img.shields.io/badge/vue--router-3.0.2-brightgreen.svg)](https://github.com/vuejs/vue-router)
@@ -14,7 +14,7 @@
 - [在线演示](http://template.liansixin.win)
 - [使用文档](http://liansixin.win/vue-blog-docs)
 
-<img src="http://poci6sbqi.bkt.clouddn.com/vueBlog-template.jpg" width="900px" style="max-width: 100%;"/>
+<img src="http://poci6sbqi.bkt.clouddn.com/vue-blog-template.jpg" width="900px" style="max-width: 100%;"/>
 
 ## 功能
 功能持续迭代中，欢迎 [pr](https://github.com/uncleLian/vue-blog/pulls) 和 [issue](https://github.com/uncleLian/vue-blog/issues)
@@ -72,7 +72,7 @@ npm run build:report
 ```
 
 ## 版本日志
-[发行说明](https://github.com/uncleLian/vue2-blog-template/releases)中记录了每个版本的详细更改。
+[发行说明](https://github.com/uncleLian/vue-blog-template/releases)中记录了每个版本的详细更改。
 
 ## Browsers support
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera |
