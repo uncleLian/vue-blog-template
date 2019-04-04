@@ -20,31 +20,29 @@
 功能持续迭代中，欢迎 [pr](https://github.com/uncleLian/vue-blog/pulls) 和 [issue](https://github.com/uncleLian/vue-blog/issues)
 
 ``` 
-* 核心功能
-    - 登录/注销
-    - 权限验证
-        - 页面级权限
-        - 按钮级权限
-    - 多环境
-        - dev
-        - prod
-        - stage
-    - 动态侧边栏
-    - 动态面包屑
-    - 错误处理
-        - 401
-        - 404
-        - 错误日志
-    - 其他处理
-        - axios封装
-        - cache封装
-        - 页面平滑过渡
-        - css预处理器全局变量
-        - 包体积优化
-    - svg icon / iconfont
-    - mock
-    - 进度条
-
+- 登录/注销
+- 权限验证
+    - 页面级权限
+    - 按钮级权限
+- 多环境
+    - dev
+    - prod
+    - stage
+- 动态侧边栏
+- 动态面包屑
+- 错误处理
+    - 401
+    - 404
+    - 错误日志
+- 其他处理
+    - axios封装
+    - cache封装
+    - 页面平滑过渡
+    - css预处理器全局变量
+    - 包体积优化
+- svg icon / iconfont
+- mock
+- 进度条
 ```
 
 ## 开发
