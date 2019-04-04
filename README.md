@@ -12,9 +12,9 @@
 > 这是一个极简的管理后台模板，它只包含了搭建管理后台的一些必要功能
 
 - [在线演示](http://template.liansixin.win)
-- [使用文档](http://liansixin.win/vue-blog-docs)
+- [使用文档](https://unclelian.github.io/vue-blog-docs/)
 
-<img src="http://poci6sbqi.bkt.clouddn.com/vue-blog-template.jpg" width="900px" style="max-width: 100%;"/>
+<img src="http://poci6sbqi.bkt.clouddn.com/vue-blog-template.png" width="900px" style="max-width: 100%;"/>
 
 ## 功能
 功能持续迭代中，欢迎 [pr](https://github.com/uncleLian/vue-blog/pulls) 和 [issue](https://github.com/uncleLian/vue-blog/issues)
@@ -50,12 +50,12 @@
 ## 开发
 ```bash
 # 克隆项目
-git clone https://github.com/uncleLian/vueBlog-template.git
+git clone https://github.com/uncleLian/vue-blog-template.git
 
 # 安装依赖
 npm install
 
-# 启动服务：localhost:8002
+# 启动服务：localhost:8003
 npm run dev
 ```
 
