@@ -1,11 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
+// 视图组件
 // const view = () => import('@/layout/view')
-const index = () => import('@/pages/index/index')
-const home = () => import('@/pages/index/children/home/home')
-const login = () => import('@/pages/login/login')
-const page401 = () => import('@/pages/other/page401')
-const page404 = () => import('@/pages/other/page404')
 
 Vue.use(Router)
 
@@ -22,56 +19,57 @@ Vue.use(Router)
 */
 
 // 要在侧边栏渲染的路由
-export const sideRoutes = setRedirect([
+export const sideRoutes = [
     {
         name: 'home',
         path: 'home',
-        component: home,
+        component: () => import('@/pages/index/children/home/home'),
         meta: {
             icon: 'dashboard',
             title: '主页'
         }
     }
+]
+
+const routes = setRedirect([
+    {
+        path: '',
+        redirect: '/index'
+    },
+    {
+        name: 'index',
+        path: '/index',
+        component: () => import('@/pages/index/index'),
+        meta: {
+            title: '首页',
+            login: true
+        },
+        children: sideRoutes
+    },
+    {
+        name: 'login',
+        path: '/login',
+        component: () => import('@/pages/login/login')
+    },
+    {
+        name: 'page401',
+        path: '/page401',
+        component: () => import('@/pages/other/page401')
+    },
+    {
+        name: 'page404',
+        path: '/page404',
+        component: () => import('@/pages/other/page404')
+    },
+    {
+        path: '*',
+        redirect: '/page404'
+    }
 ])
 
 export default new Router({
     // mode: 'history',
-    routes: [
-        {
-            path: '',
-            redirect: '/index'
-        },
-        {
-            name: 'index',
-            path: '/index',
-            component: index,
-            redirect: '/index/home',
-            meta: {
-                login: true,
-                title: '首页'
-            },
-            children: sideRoutes
-        },
-        {
-            name: 'login',
-            path: '/login',
-            component: login
-        },
-        {
-            name: 'page401',
-            path: '/page401',
-            component: page401
-        },
-        {
-            name: 'page404',
-            path: '/page404',
-            component: page404
-        },
-        {
-            path: '*',
-            redirect: '/page404'
-        }
-    ],
+    routes,
     scrollBehavior(to, from, savedPosition) {
         if (savedPosition) {
             return savedPosition
@@ -82,7 +80,7 @@ export default new Router({
 })
 
 // 自动设置路由的重定向（有子路由前提下）
-function setRedirect(routes, redirect = '/index') {
+function setRedirect(routes, redirect = '') {
     routes.forEach(route => {
         if (route.children && route.children.length > 0) {
             if (!route.redirect) {

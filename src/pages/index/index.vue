@@ -18,7 +18,7 @@ export default {
     name: 'index',
     components: {
         'app-header': header,
-        'app-menu': sidebar,
+        'app-menu': sidebar
     }
 }
 </script>

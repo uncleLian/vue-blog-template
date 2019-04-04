@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import cache from '@/utils/cache'
-import { getLogin, getUser } from '@/api'
+import { getLogin, getUser } from '@/api/login'
 
 Vue.use(Vuex)
 

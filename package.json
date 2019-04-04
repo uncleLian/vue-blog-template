@@ -1,17 +1,17 @@
 {
     "name": "vue-blog-template",
-    "version": "2.3.0",
+    "version": "2.0.0",
     "private": true,
     "scripts": {
         "dev": "vue-cli-service serve",
         "build": "vue-cli-service build",
-        "build:sit": "vue-cli-service build --mode sit",
+        "build:stage": "vue-cli-service build --mode stage",
         "build:report": "vue-cli-service build --report",
         "lint": "vue-cli-service lint"
     },
     "dependencies": {
         "axios": "^0.18.0",
-        "element-ui": "^2.6.1",
+        "element-ui": "^2.7.2",
         "js-cookie": "^2.2.0",
         "mockjs": "^1.0.1-beta3",
         "normalize.css": "^8.0.1",
