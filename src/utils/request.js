@@ -52,8 +52,14 @@ export const request = async (url = '', type = 'GET', data = {}, isForm = false)
     if (isForm) {
         let form = new FormData()
         Object.keys(data).forEach(key => {
-            console.log('key', key)
-            form.append(key, data[key])
+            let value = data[key]
+            if (Array.isArray(value)) {
+                value.forEach(item => {
+                    form.append(key, item)
+                })
+            } else {
+                form.append(key, data[key])
+            }
         })
         data = form
     }

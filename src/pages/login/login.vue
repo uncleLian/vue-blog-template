@@ -49,9 +49,9 @@ export default {
         login() {
             let successMsg = '登录成功'
             let errorMsg = '账号或密码错误'
-            this.$store.dispatch('GET_LOGIN_DATA', this.form).then((res) => {
+            this.$store.dispatch('login/getLoginToken', this.form).then((res) => {
                 this.$message.success(successMsg)
-                this.$route.query.redirect ? this.$router.push(this.$route.query.redirect) : this.$router.push('/')
+                this.$route.query.redirect ? this.$router.push(this.$route.query.redirect) : this.$router.push('/index')
             }).catch((err) => {
                 console.log(err)
                 this.$message.error(errorMsg)

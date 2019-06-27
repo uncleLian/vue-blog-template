@@ -1,22 +1,25 @@
 <template>
-    <div id="home">
-        Home Page
+    <div id="user">
+        User
     </div>
 </template>
 <script>
 export default {
-    name: 'home',
+    name: 'user',
     data() {
         return {
+
         }
     },
     mounted() {
+
     },
     methods: {
+
     }
 }
 </script>
 <style lang='stylus'>
-#home {
+#user {
 }
 </style>

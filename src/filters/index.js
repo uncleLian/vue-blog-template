@@ -1,9 +1,6 @@
 import Vue from 'vue'
 
 const filters = {
-    devide_10k: function (num) {
-        return num >= 10000 ? (num / 10000).toFixed(1) + '万' : num
-    },
     // 时间格式化
     formatTime: function (time, formatType) {
         if (arguments.length === 0) {

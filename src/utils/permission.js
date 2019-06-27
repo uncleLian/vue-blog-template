@@ -5,39 +5,39 @@ import cache from '@/utils/cache'
 // 登录验证，权限验证
 router.beforeEach((to, from, next) => {
     // 是否需要登录
-    if (to.matched.some(record => record.meta.login)) {
-        if (cache.getToken()) {
-            if (to.path === '/login') {
-                next('/')
-            } else {
-                // 是否已有用户信息
-                if (store.state.user) {
-                    assessPermission(store.state.user.role, to.meta.role, next)
-                } else {
-                    store.dispatch('GET_USER_DATA').then(res => {
-                        assessPermission(res.role, to.meta.role, next)
-                    }).catch(err => {
-                        console.log(err)
-                        // 可根据错误信息，做相应需求，这里默认token值失效
-                        window.alert('登录已失效，请重新登录')
-                        store.commit('SET_LOGOUT')
-                        next({ path: '/login', query: { redirect: to.fullPath } })
-                    })
-                }
-            }
+    if (cache.getToken()) {
+        if (to.path === '/login') {
+            next('/index')
         } else {
-            next({ path: '/login', query: { redirect: to.fullPath } })
+            // 是否已有用户信息
+            let userInfo = store.state.login.user
+            if (userInfo) {
+                assessPermission(userInfo.roles, to.meta.roles, next)
+            } else {
+                store.dispatch('login/getUserData').then(res => {
+                    store.dispatch('routes/generateRoutes').then(addRoutes => {
+                        router.addRoutes(addRoutes)
+                        next({ ...to, replace: true })
+                    })
+                }).catch(err => {
+                    console.log(err)
+                    // 可根据错误信息，做相应需求，这里默认token值失效
+                    window.alert('登录已失效，请重新登录')
+                    store.commit('login/SET_LOGOUT')
+                    next({ path: '/login', query: { redirect: to.fullPath } })
+                })
+            }
         }
     } else {
-        if (to.path === '/login' && cache.getToken()) {
-            next('/')
-        } else {
+        if (to.path === '/login') {
             next()
+        } else {
+            next({ path: '/login', query: { redirect: to.fullPath } })
         }
     }
 })
 
-// 验证权限
+// 验证权限（页面级）
 function assessPermission(userRole, pageRole, next) {
     let pass = false
     // 页面无需权限 || 用户是管理员
