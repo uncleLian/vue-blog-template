@@ -11,7 +11,7 @@
 ##### 注：master分支基于 vue-cli-3.x，vue-cli-2.x请移步到[v1.0分支](https://github.com/uncleLian/vueBlog-template/tree/v1.0)
 
 - [在线演示](http://template.liansixin.win)
-- [使用文档](http://liansixin.win/vue-blog-book)
+- [使用文档](https://unclelian.github.io/vue-blog-docs/)
 
 <img src="https://github.com/uncleLian/vueBlog-template/raw/gh-pages/screenshots/dashboard.png" width="900px" style="max-width: 100%;"/>
 
