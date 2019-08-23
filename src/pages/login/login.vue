@@ -6,7 +6,7 @@
                     <img src="~@/assets/img/logo.png">
                 </div>
                 <div class="login-box">
-                    <el-form class="login-form" :model="form" @submit.native.prevent="verify" label-position="top">
+                    <el-form class="login-form" :model="form" @submit.native.prevent="verify" label-position="top" v-loading="loading" element-loading-text="登录中..." element-loading-background="rgba(255, 255, 255, 0.7)">
                         <el-form-item class="tip">系统登录</el-form-item>
                         <el-form-item label="用户名">
                             <el-input v-model="form.username" auto-complete='off' />
@@ -31,7 +31,8 @@ export default {
             form: {
                 username: 'admin',
                 password: '123456'
-            }
+            },
+            loading: false
         }
     },
     methods: {
@@ -47,14 +48,17 @@ export default {
             }
         },
         login() {
+            this.loading = true
             let successMsg = '登录成功'
             let errorMsg = '账号或密码错误'
             this.$store.dispatch('login/getLoginToken', this.form).then((res) => {
-                this.$message.success(successMsg)
                 this.$route.query.redirect ? this.$router.push(this.$route.query.redirect) : this.$router.push('/index')
+                this.$message.success(successMsg)
+                this.loading = false
             }).catch((err) => {
                 console.log(err)
                 this.$message.error(errorMsg)
+                this.loading = false
             })
         }
     }
@@ -62,7 +66,7 @@ export default {
 </script>
 <style lang='stylus'>
 $loginPrimary = #304352;
-$loginPrimaryRGB = 48,67,82;
+$loginPrimaryRGB = 48, 67, 82;
 $loginGrey = rgba($loginPrimaryRGB, 0.06);
 $loginDark = rgba($loginPrimaryRGB, 0.5);
 #login {

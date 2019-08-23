@@ -1,6 +1,6 @@
 {
     "name": "vue-blog-template",
-    "version": "2.2.0",
+    "version": "2.3.0",
     "private": true,
     "scripts": {
         "dev": "vue-cli-service serve",
@@ -28,6 +28,7 @@
         "@vue/cli-service": "^3.5.0",
         "@vue/eslint-config-standard": "^4.0.0",
         "babel-eslint": "^10.0.1",
+        "babel-plugin-component": "^1.1.1",
         "eslint": "^5.8.0",
         "eslint-plugin-vue": "^5.0.0",
         "stylus": "^0.54.5",
