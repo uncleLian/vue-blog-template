@@ -1,6 +1,6 @@
 {
     "name": "vue-blog-template",
-    "version": "2.3.0",
+    "version": "2.4.0",
     "private": true,
     "scripts": {
         "dev": "vue-cli-service serve",
@@ -11,7 +11,7 @@
     },
     "dependencies": {
         "axios": "^0.18.0",
-        "element-ui": "^2.10.0",
+        "element-ui": "^2.12.0",
         "js-cookie": "^2.2.0",
         "mockjs": "^1.0.1-beta3",
         "normalize.css": "^8.0.1",

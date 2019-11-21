@@ -27,11 +27,14 @@ instance.interceptors.response.use(response => {
     return Promise.resolve(res)
 }, error => {
     // 请求直接报错
-    Message({
-        message: error.message,
-        type: 'error',
-        duration: 3 * 1000
-    })
+    const status = (error.response && error.response.status) || ''
+    if (status === 401) {
+        store.dispatch('login/logout')
+        Message.error('登录已失效，请重新登录')
+    } else {
+        let message = error.message || error
+        Message.error(message)
+    }
     return Promise.reject(error)
 })
 

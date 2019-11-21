@@ -15,16 +15,16 @@
     </div>
 </template>
 <script>
-import Cola from '@/components/Cola'
-import Breadcrumb from '@/components/Breadcrumb'
-import UserSelect from '@/components/UserSelect'
-import ErrorLog from '@/components/ErrorLog'
+import Cola from '@/components/Base/Cola'
+import Breadcrumb from '@/components/Base/Breadcrumb'
+import ErrorLog from '@/components/Base/ErrorLog'
+import UserSelect from './UserSelect'
 export default {
     components: {
         Cola,
         Breadcrumb,
-        UserSelect,
-        ErrorLog
+        ErrorLog,
+        UserSelect
     }
 }
 </script>

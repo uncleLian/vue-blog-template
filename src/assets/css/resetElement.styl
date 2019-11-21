@@ -1,0 +1,35 @@
+.el-dialog {
+    .el-dialog__body {
+        padding: 20px;
+        .el-form-item {
+            display: inline-block;
+            width: 50%;
+            padding: 0 2%;
+            vertical-align: top;
+            &.textarea {
+                width: 100%;
+            }
+            .el-form-item__content {
+                & > .el-input, .el-select, .el-textarea, .el-cascader, .el-input-number {
+                    width: 100%;
+                }
+                .el-textarea {
+                    .el-textarea__inner {
+                        padding-bottom: 32px;
+                    }
+                }
+                .el-input-number {
+                    .el-input__inner {
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+    .el-form--label-top .el-form-item__label {
+        padding: 0;
+    }
+    .el-form-item--small.el-form-item {
+        margin-bottom: 15px;
+    }
+}
